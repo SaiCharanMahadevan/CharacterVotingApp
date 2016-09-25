@@ -4,12 +4,16 @@ var swig = require('swig');
 var React = require('react');
 var ReactDOM = require('react-dom/server');
 var Router = require('react-router');
-var routes = require('./app/routes');
-
+var mongoose = requre('mongoos');
 var express = require('express');
+
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+
+var routes = require('./app/routes');
+var Character = require('./models/character');
+var config = requre('./config');
 
 var app = express();
 
@@ -33,6 +37,11 @@ app.use(function(req, res) {
       res.status(404).send('Page Not Found')
     }
   });
+});
+
+mongoose.connect(config.database);
+mongoose.connection.on('error', function() {
+  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`? ');
 });
 
 // Socket.io stuff
