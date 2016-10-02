@@ -47,6 +47,7 @@
     "babel-preset-react": "^6.1.18",
     "babel-register": "^6.3.13",
     "babelify": "^7.2.0",
+    "bower": "^1.7.9",
     "browserify": "^12.0.1",
     "configstore": "^2.1.0",
     "gulp": "^3.9.0",
