@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router';
-import App from './components/App';
+import App from './components/app';
 import Home from './components/Home';
 import AddCharacter from './components/AddCharacter';
 import Character from './components/Character';
