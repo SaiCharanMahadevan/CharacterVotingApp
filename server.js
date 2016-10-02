@@ -105,7 +105,6 @@ app.post('/api/characters', function(req, res, next) {
 app.get('/api/characters', function(req, res, next) {
   var choices = ['Female', 'Male'];
   var randomGender = _.sample(choices);
-  console.log(choices);
   Character.find({ random: { $near: [Math.random(), 0] } })
     .where('voted', false)
     .where('gender', randomGender)
