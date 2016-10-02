@@ -105,7 +105,7 @@ app.post('/api/characters', function(req, res, next) {
 app.get('/api/characters', function(req, res, next) {
   var choices = ['Female', 'Male'];
   var randomGender = _.sample(choices);
-
+  console.log(choices);
   Character.find({ random: { $near: [Math.random(), 0] } })
     .where('voted', false)
     .where('gender', randomGender)
@@ -171,7 +171,7 @@ app.put('/api/characters', function(req, res, next) {
       if (err) return next(err);
 
       var winner = results[0];
-      var loser = resuls[1];
+      var loser = results[1];
 
       if (!winner || !loser) {
         return res.status(404).send({ message: 'One of the characters no longer exists'})
@@ -367,7 +367,7 @@ app.get('/api/stats', function(req, res, next) {
     },
     function(callback) {
       Character.aggregate({ $group: { _id: null, total: { $sum: '$wins' } } }, function(err, totalVotes) {
-        var total = totalVotes.length > totalVotes[0].total : 0;
+        var total = totalVotes.length ? totalVotes[0].total : 0;
         callback(err, total);
       });
     },

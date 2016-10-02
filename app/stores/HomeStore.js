@@ -11,12 +11,12 @@ class HomeStore {
     this.characters = data;
   }
 
-  onGetTwoCharactersSuccess(errorMessage) {
+  onGetTwoCharactersFail(errorMessage) {
     toastr.error(errorMessage);
   }
 
-  onVoteFaile(errorMessge) {
-    toastr.error(errorMessge);
+  onVoteFail(errorMessage) {
+    toastr.error(errorMessage);
   }
 }
 

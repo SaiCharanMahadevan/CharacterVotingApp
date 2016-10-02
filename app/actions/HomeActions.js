@@ -22,14 +22,14 @@ class HomeActions {
   vote(winner, loser) {
     $.ajax({
       type: 'PUT',
-      url: '/api/characters',
-      data: { winner: winner, loser: loser}
+      url: '/api/characters' ,
+      data: { winner: winner, loser: loser }
     })
       .done(() => {
         this.actions.getTwoCharacters();
       })
       .fail((jqXhr) => {
-        this.actions.voteFaile(jqXhr.responseJSON.message);
+        this.actions.voteFail(jqXhr.responseJSON.message);
       });
   }
 }

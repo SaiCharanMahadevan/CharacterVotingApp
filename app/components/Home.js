@@ -26,6 +26,10 @@ export default class Home extends Component {
     HomeActions.vote(winner, loser);
   }
 
+  onChange(state) {
+    this.setState(state);
+  }
+
   render() {
     const characterNodes = this.state.characters.map((character, index) => {
       return (
